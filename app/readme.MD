@@ -1,13 +1,32 @@
-# Análise Comparativa de Frameworks de IA
 
-Realizar o benchmarking e entender a diferença empírica no retorno e no processo lógico (reasoning) estrutural. Compararemos CrewAI, LangGraph e Pydantic resolvendo o meso prompt para gerar as nossas conclusões de arquitetura.
-A ideia é entender qual a melhor abordagem hoje entre os agentes para resolver problemas de mercado e e-commerce.
+---
 
-**Pergunta Teste:**
-> "Com base em dados recentes e tendências de mercado, qual seria a categoria mais rentável e adequada para quem quer iniciar com vendas online hoje?"
+## 🚀 Guia Rápido: Como Instalar e Rodar o Projeto
 
-**Diretrizes da Análise:**
-- Realize uma auditoria nos payloads gerados (reasoning lógico + resposta final em si) e diga qual das três construções teve o pensamento melhor articulado.
-- Exponha claramente as vantagens ou fraquezas nos payloads baseadas em qual framework estruturou a resposta (CrewAI vs LangGraph vs Pydantic).
-- Forneça a visão detalhada de por quê um frame superou ou foi pior que o outro baseando-se especificamente no conteúdo testado e na sua implementação de código no microserviço.
-- Liste sempre as tecnologias e o ambiente empregados na arquitetura de cada teste.
+### 1. Pré-requisitos
+- Python 3.10 ou superior.
+- Chave de API da OpenAI.
+
+### 2. Configurando o Ambiente Virtual e a API Key
+Na raiz do projeto, crie um ambiente virtual (venv) para evitar sobreposição de bibliotecas na sua máquina:
+```bash
+python3 -m venv venv
+source venv/bin/activate  # Linux/Mac. Se usar Windows, rode: venv\Scripts\activate
+```
+
+Instale as dependências essenciais do framework base
+```bash
+pip install -r requirements.txt
+```
+
+Crie um arquivo estrito `.env` na raiz do projeto para setar sua chave. Você pode se basear no `.env.example`:
+```env
+OPENAI_API_KEY=sk-sua-chave-aqui
+```
+
+### 3. Rodando os Agentes Individuais (A Base do Projeto)
+Em um terminal (com o `venv` ativo acima), inicie a API FastAPI principal que cuida do tráfego para os motores. O padrão é subir na **porta 8000**:
+```bash
+python3 app/main.py
+```
+Esse servidor expõe a infraestrutura limpa do LangGraph, Pydantic e CrewAI em suas devidas rotas limpas. Vá para `http://localhost:8000/docs` no navegador para interagir com o Swagger.
