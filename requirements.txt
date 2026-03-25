@@ -1,0 +1,9 @@
+fastapi>=0.110.0
+uvicorn>=0.28.0
+pydantic>=2.7.0
+pydantic-settings>=2.2.1
+openai>=1.14.0
+crewai>=0.22.5
+langgraph>=0.0.30
+langchain-core>=0.1.30
+langchain-openai>=0.1.0
